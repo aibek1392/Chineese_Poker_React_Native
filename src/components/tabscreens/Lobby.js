@@ -4,19 +4,23 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  TouchableHighlight,
   Text,
   Button,
   Alert,
 } from "react-native";
 import Modal from "react-native-modal";
+import UserCard from '../UserCard';
 
 const Lobby = ({ navigation }) => {
   const [isModalVisible, setModal] = useState(false);
   const [userName, setUserName] = useState("");
 
+  const user = {
+    username: 'Aibek',
+    avatar: 'https://i1.pngguru.com/preview/137/834/449/cartoon-cartoon-character-avatar-drawing-film-ecommerce-facial-expression-png-clipart.jpg' 
+  }
+
   const handleNo = () => {
-    // It is navigating to home without user pressing ok. 
     Alert.alert("Sorry", "You must be 21 or older to play!", [
       {
         text: "Ok",
@@ -34,7 +38,7 @@ const Lobby = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
+      {/* <View style={styles.inputContainer}>
         <Image
           style={styles.inputIcon}
           source={{
@@ -48,7 +52,11 @@ const Lobby = ({ navigation }) => {
           underlineColorAndroid="transparent"
           onChangeText={(userName) => setUserName(userName)}
         />
-      </View>
+      </View> */}
+      <UserCard username={user.username} avatar={user.avatar}/>
+      <UserCard/>
+      <UserCard/>
+      <UserCard/>
 
       <Button title="Next" onPress={() => setModal(true)} />
 
