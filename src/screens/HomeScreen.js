@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, Image, AsyncStorage } from 'react-native';
+import TextInput from '../components/TextInput'
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null)
@@ -15,7 +16,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.mainContainer}>
       {user ? null : load()}
-      {console.log(user)}
+      <TextInput />
       <Text style={styles.header}>
         Welcome {user ? user.user.email : null}
       </Text>
@@ -30,6 +31,10 @@ const HomeScreen = ({ navigation }) => {
       <Button 
         title="RULES"
         onPress={() => navigation.navigate('Rules')}
+      /> 
+      <Button 
+        title="SETTINGS"
+        onPress={() => navigation.navigate('Settings')}
       /> 
     </View>
   )
