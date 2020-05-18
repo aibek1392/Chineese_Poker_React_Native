@@ -51,4 +51,3 @@ UserCard.defaultProps = {
 }
 
 export default UserCard;
-
